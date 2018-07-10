@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  traefik:
+    restart: unless-stopped
+    image: traefik
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik/traefik.toml:/etc/traefik/traefik.toml:ro
+      - ./traefik/acme:/etc/traefik/acme
+    ports:
+     - "80:80"
+     - "443:443"
+     - "8080:8080"
+
+  app:
+    restart: unless-stopped
+    image: nginx:latest
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=80"
+      - "traefik.frontend.rule=Host:127.0.0.1,my-awesome-site.dev"
+

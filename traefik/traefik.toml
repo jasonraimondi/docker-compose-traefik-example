@@ -1,0 +1,58 @@
+################################################################
+# Docker Provider
+################################################################
+
+# Enable Docker Provider.
+[docker]
+
+# Docker server endpoint. Can be a tcp or a unix socket endpoint.
+#
+# Required
+#
+endpoint = "unix:///var/run/docker.sock"
+
+# Default domain used.
+# Can be overridden by setting the "traefik.domain" label on a container.
+#
+# Required
+#
+domain = "docker.localhost"
+
+# Enable watch docker changes.
+#
+# Optional
+#
+watch = true
+
+# Override default configuration template.
+# For advanced users :)
+#
+# Optional
+#
+# filename = "docker.tmpl"
+
+# Override template version
+# For advanced users :)
+#
+# Optional
+# - "1": previous template version (must be used only with older custom templates, see "filename")
+# - "2": current template version (must be used to force template version when "filename" is used)
+#
+# templateVersion = 2
+
+# Expose containers by default in Traefik.
+# If set to false, containers that don't have `traefik.enable=true` will be ignored.
+#
+# Optional
+# Default: true
+#
+exposedByDefault = true
+
+# Use the IP address from the binded port instead of the inner network one.
+# For specific use-case :)
+#
+# Optional
+# Default: false
+#
+usebindportip = true
+

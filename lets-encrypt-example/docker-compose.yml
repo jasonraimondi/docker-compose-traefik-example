@@ -19,5 +19,5 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.port=80"
-      - "traefik.frontend.rule=Host:jasonraimondi.com,www.jasonraimondi.com"
+      - "traefik.frontend.rule=Host:127.0.0.1,my-awesome-site.dev"
 
